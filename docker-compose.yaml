@@ -6,7 +6,15 @@ services:
     environment:
       DB_URL: postgresql+psycopg://user:qwerty12@database:5432/latte_gallery
     ports:
+      - "8000:8000"
+
+  traefik:
+    image: traefik:v3.2
+    ports:
       - "8080:8080"
+    volumes:
+      - ./traefik.yaml:/etc/traefik/traefik.yaml
+      - /var/run/docker.sock:/var/run/docker.sock
 
   database:
     image: postgres:17
