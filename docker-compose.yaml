@@ -7,7 +7,6 @@ services:
       SERVER_PORT: "8000"
       ROOT_PATH: /
       DB_URL: postgresql+psycopg://user:qwerty12@database:5432/latte_gallery
-      INITIAL_ACCOUNTS: ./initial_accounts.json
     secrets:
       - source: token_secret
         target: secret_key
