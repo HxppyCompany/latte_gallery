@@ -5,13 +5,14 @@ services:
       context: .
     environment:
       SERVER_PORT: "8000"
-      ROOT_PATH: /api
+      ROOT_PATH: /
       DB_URL: postgresql+psycopg://user:qwerty12@database:5432/latte_gallery
+      INITIAL_ACCOUNTS: ./initial_accounts.json
     secrets:
       - source: token_secret
         target: secret_key
-    # ports:
-      # - "8000:8000"
+    ports:
+      - "8000:8000"
     volumes:
       - ./initial_accounts.json:/run/secrets/initial_accounts
     labels:
